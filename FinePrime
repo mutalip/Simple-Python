@@ -1,0 +1,16 @@
+import math
+def FindPrime(n):
+    for i in range(2,n):
+        print(i)
+        if n%i == 0:
+            return False
+
+
+    return True	
+
+
+
+    
+a = int(input("Inter a numebr: "))
+num =  FindPrime(a)
+print (num)
