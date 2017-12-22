@@ -1,0 +1,50 @@
+class Node(object):
+
+   def __init__(self, data=None, next_node=None):
+       self.data = data
+       self.next = next_node
+
+def MergeLists(headA, headB):
+    head = tail = Node('',None)
+    while headA or headB:
+        '''
+        # duplicated code here
+        if headA is not None:
+            if (headB and headA.data<=headB.data) or (headB is None):
+                tail.next = headA
+                tail = headA
+                headA = headA.next
+
+        if headB is not None:
+            if (headA and headB.data <= headA.data) or (headA is None):
+                tail.next = headB
+                tail = headB
+                headB = headB.next
+        '''
+        for i in range(2):
+            if headA is not None:
+                if ( headB and headA.data<=headB.data) or (headB is None):
+                    tail.next = headA
+                    tail = headA
+                    headA = headA.next
+            # When i==0, this will flip headA & headB
+            # When i==1, it will restore them
+            headA,headB = headB,headA
+
+    return head.next
+
+list1 = Node('g')
+list1.next = Node('e')
+list1.next.next = Node('e')
+list1.next.next.next = Node('k')
+list1.next.next.next.next = Node('s')
+list1.next.next.next.next.next = Node('b')
+
+list2 = Node('g')
+list2.next = Node('e')
+list2.next.next = Node('e')
+list2.next.next.next = Node('k')
+list2.next.next.next.next = Node('s')
+list2.next.next.next.next.next = Node('a')
+
+print(MergeLists(list1,list2).data )
