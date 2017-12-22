@@ -1,0 +1,11 @@
+def Merge(*things):
+    newlist = []
+    for elem in things:
+        newlist += elem
+    return newlist
+
+
+s1 = [1,5,4,5]
+s2 = ["","you",3,46,7]
+new  = Merge(s1,s2)
+print (new)
